@@ -1,0 +1,24 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.organizeImports": true
+  },
+  "editor.formatOnSave": true,
+  "editor.renderWhitespace": "all",
+  "editor.tabSize": 2,
+  "files.encoding": "utf8bom",
+  "git.ignoreLimitWarning": true,
+  "peacock.affectActivityBar": true,
+  "peacock.affectStatusBar": true,
+  "peacock.affectTitleBar": false,
+  "peacock.color": "#849f69",
+  "workbench.colorCustomizations": {
+    "activityBar.background": "#9db388",
+    "activityBar.foreground": "#15202b",
+    "activityBar.inactiveForeground": "#15202b99",
+    "activityBarBadge.background": "#576f88",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "statusBar.background": "#849f69",
+    "statusBarItem.hoverBackground": "#6a8253",
+    "statusBar.foreground": "#15202b"
+  }
+}
