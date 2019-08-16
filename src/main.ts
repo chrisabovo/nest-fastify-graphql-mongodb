@@ -1,20 +1,17 @@
-import { NestFactory } from '@nestjs/core';
-import {
-  FastifyAdapter,
-  NestFastifyApplication,
-} from '@nestjs/platform-fastify';
-import { AppModule } from './app.module';
+import {Logger} from "@nestjs/common";
+import {NestFactory} from "@nestjs/core";
+import {FastifyAdapter, NestFastifyApplication} from "@nestjs/platform-fastify";
+import "dotenv/config";
+import {AppModule} from "./app.module";
 
 async function bootstrap() {
-  const port = 3333;
+  const port = process.env.PORT;
   const url = `http://localhost:${port}`;
 
-  const app = await NestFactory.create<NestFastifyApplication>(
-    AppModule,
-    new FastifyAdapter({ logger: false }),
-  );
+  const app = await NestFactory.create<NestFastifyApplication>(AppModule, new FastifyAdapter({logger: false}));
   await app.listen(port);
 
-  console.log(`🚀 Server ready at ${url}`);
+  Logger.log(`🚀 Server started running on ${url}`, "Bootstrap");
 }
+
 bootstrap();
