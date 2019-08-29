@@ -1,6 +1,6 @@
 ﻿type Query {
   getUsers: [User]
-  user(id: ID!): User
+  user(_id: String): User
 }
 
 type Mutation {
@@ -12,7 +12,7 @@ type Subscription {
 }
 
 type User {
-  id: Int
+  _id: String
   username: String
   name: String
   email: String

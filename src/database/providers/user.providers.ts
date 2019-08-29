@@ -1,12 +1,12 @@
 ﻿import { Connection } from 'mongoose';
-import { DatabaseConstants } from '../database.constants';
+import { DBCollectionConstants, DBConstants } from '../database.constants';
 import { UserSchema } from '../schemas/user.schema';
 
 export const userProviders = [
   {
-    provide: DatabaseConstants.USER_MODEL,
+    provide: DBConstants.USER_MODEL,
     useFactory: (connection: Connection) =>
-      connection.model('User', UserSchema),
-    inject: [DatabaseConstants.DATABASE_CONNECTION],
+      connection.model(DBCollectionConstants.USER, UserSchema),
+    inject: [DBConstants.DATABASE_CONNECTION],
   },
 ];

@@ -18,7 +18,7 @@ export abstract class IMutation {
 export abstract class IQuery {
     abstract getUsers(): User[] | Promise<User[]>;
 
-    abstract user(id: string): User | Promise<User>;
+    abstract user(_id?: string): User | Promise<User>;
 }
 
 export abstract class ISubscription {
@@ -26,7 +26,7 @@ export abstract class ISubscription {
 }
 
 export class User {
-    id?: number;
+    _id?: string;
     username?: string;
     name?: string;
     email?: string;

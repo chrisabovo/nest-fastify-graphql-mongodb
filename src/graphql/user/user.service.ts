@@ -1,22 +1,26 @@
-﻿import { Injectable } from '@nestjs/common';
-import { User } from '../../graphql.schema';
+﻿import { Inject, Injectable } from '@nestjs/common';
+import { Model } from 'mongoose';
+import { DBConstants } from 'src/database/database.constants';
+import { UserDocument } from 'src/database/documents/user.document';
+import { User, UserInput } from '../../graphql.schema';
 
 @Injectable()
 export class UserService {
-  private readonly users: User[] = [
-    { id: 1, username: 'jao.01', name: 'Jão 1', email: 'jao.01@teste.com' },
-  ];
+  constructor(
+    @Inject(DBConstants.USER_MODEL)
+    private readonly userModel: Model<UserDocument>,
+  ) {}
 
-  create(user: User): User {
-    this.users.push(user);
-    return user;
+  async create(userInput: UserInput): Promise<User> {
+    const created = new this.userModel(userInput);
+    return await created.save();
   }
 
-  findAll(): User[] {
-    return this.users;
+  async findAll(): Promise<User[]> {
+    return await this.userModel.find().exec();
   }
 
-  findOneById(id: number): User {
-    return this.users.find(x => x.id === id);
+  async findOneById(id: string): Promise<User> {
+    return await this.userModel.findById(id).exec();
   }
 }

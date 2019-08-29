@@ -51,7 +51,7 @@ QUERY: getUsers
 ```graphql
 {
   getUsers {
-    id
+    _id
     username
     name
     email
@@ -63,8 +63,8 @@ QUERY: user
 
 ```graphql
 {
-  user(id: 1) {
-    id
+  user(_id: "5d6818d4746d745380219668") {
+    _id
     username
     name
     email
@@ -78,12 +78,12 @@ MUTATION: createUser
 mutation {
   createUser(
     userInput: {
-      username: "maria.01"
-      name: "maria 001"
-      email: "maria1@test.com"
+      username: "maria.04"
+      name: "maria 004"
+      email: "maria4@test.com"
     }
   ) {
-    id
+    _id
     username
     name
     email
@@ -96,7 +96,7 @@ SUBSCRIPTION: userCreated
 ```graphql
 subscription {
   userCreated {
-    id
+    _id
     username
     name
     email
