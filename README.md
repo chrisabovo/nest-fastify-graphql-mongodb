@@ -1,7 +1,6 @@
 # nest-fastify-graphql-mongodb
+
 Exemplo de uso com Nestjs + Fastify + Graphql + MongoDB
-
-
 
 ## Description
 
@@ -39,16 +38,68 @@ $ npm run test:e2e
 $ npm run test:cov
 ```
 
-## Support
+## URL Testing
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+<http://localhost:3333>
 
-## Stay in touch
+### GraphQL Starter
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+GraphQL PlayGround --> <http://localhost:3333/graphql>
 
-## License
+QUERY: getUsers
 
-  Nest is [MIT licensed](LICENSE).
+```graphql
+{
+  getUsers {
+    id
+    username
+    name
+    email
+  }
+}
+```
+
+QUERY: user
+
+```graphql
+{
+  user(id: 1) {
+    id
+    username
+    name
+    email
+  }
+}
+```
+
+MUTATION: createUser
+
+```graphql
+mutation {
+  createUser(
+    userInput: {
+      username: "maria.01"
+      name: "maria 001"
+      email: "maria1@test.com"
+    }
+  ) {
+    id
+    username
+    name
+    email
+  }
+}
+```
+
+SUBSCRIPTION: userCreated
+
+```graphql
+subscription {
+  userCreated {
+    id
+    username
+    name
+    email
+  }
+}
+```
