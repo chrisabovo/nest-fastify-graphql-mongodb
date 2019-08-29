@@ -1,7 +1,4 @@
 ﻿import { Document } from 'mongoose';
+import { UserInput } from 'src/graphql.schema';
 
-export interface UserDocument extends Document {
-  readonly username: string;
-  readonly name: string;
-  readonly email: string;
-}
+export interface UserDocument extends Document, UserInput {}
