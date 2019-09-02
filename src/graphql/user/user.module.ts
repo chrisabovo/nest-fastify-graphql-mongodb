@@ -1,6 +1,6 @@
 ﻿import { Module } from '@nestjs/common';
 import { DatabaseModule } from '../../database/database.module';
-import { userProviders } from '../../database/providers/user.providers';
+import { userProviders } from './user.db';
 import { UserResolver } from './user.resolver';
 import { UserService } from './user.service';
 

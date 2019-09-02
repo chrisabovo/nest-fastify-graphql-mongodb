@@ -1,8 +1,8 @@
 ﻿import { Inject, Injectable } from '@nestjs/common';
 import { Model } from 'mongoose';
 import { DBModelConstants } from '../../database/database.constants';
-import { UserDocument } from '../../database/documents/user.document';
 import { User, UserInput } from '../../graphql.schema';
+import { UserDocument } from './user.db';
 
 @Injectable()
 export class UserService {
