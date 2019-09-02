@@ -1,4 +1,4 @@
 ﻿import { Document } from 'mongoose';
-import { UserInput } from 'src/graphql.schema';
+import { UserInput } from '../../graphql.schema';
 
 export interface UserDocument extends Document, UserInput {}

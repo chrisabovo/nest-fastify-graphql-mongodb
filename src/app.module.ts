@@ -3,10 +3,12 @@ import { GraphQLModule } from '@nestjs/graphql';
 import { join } from 'path';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
+import { DatabaseModule } from './database/database.module';
 import { UserModule } from './graphql/user/user.module';
 
 @Module({
   imports: [
+    DatabaseModule,
     UserModule,
     GraphQLModule.forRoot({
       debug: true,
@@ -21,5 +23,6 @@ import { UserModule } from './graphql/user/user.module';
   ],
   controllers: [AppController],
   providers: [AppService],
+  exports: [DatabaseModule],
 })
 export class AppModule {}
