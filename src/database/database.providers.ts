@@ -8,6 +8,7 @@ export const databaseProviders = [
       mongoose.connect('mongodb://localhost/nest-fastify-graphql-mongodb', {
         useNewUrlParser: true,
         useCreateIndex: true,
+        useUnifiedTopology: true,
       }),
   },
 ];

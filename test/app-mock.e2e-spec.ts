@@ -1,16 +1,21 @@
-import { INestApplication } from '@nestjs/common';
-import { Test, TestingModule } from '@nestjs/testing';
+﻿import { INestApplication } from '@nestjs/common';
+import { Test } from '@nestjs/testing';
 import * as mongoose from 'mongoose';
 import * as request from 'supertest';
 import { AppModule } from './../src/app.module';
+import { AppService } from './../src/app.service';
+import { AppServiceMock } from './mock/app.service.mock';
 
-describe('AppController (e2e)', () => {
+describe('AppController with Mock (e2e)', () => {
   let app: INestApplication;
 
   beforeAll(async () => {
-    const moduleFixture: TestingModule = await Test.createTestingModule({
+    const moduleFixture = await Test.createTestingModule({
       imports: [AppModule],
-    }).compile();
+    })
+      .overrideProvider(AppService)
+      .useClass(AppServiceMock)
+      .compile();
 
     this.app = await moduleFixture.createNestApplication().init();
   });
@@ -28,9 +33,9 @@ describe('AppController (e2e)', () => {
     await new Promise(resolve => setTimeout(() => resolve(), 500)); // avoid jest open handle error
   });
 
-  test('/ (GET)', async () => {
+  it('/ (GET)', async () => {
     return await request(this.app.getHttpServer())
       .get('/')
-      .expect(200, 'Hello World!');
+      .expect(200, 'Hello World - Mocked!');
   });
 });

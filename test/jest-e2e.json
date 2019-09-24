@@ -1,9 +1,5 @@
 {
-  "moduleFileExtensions": [
-    "js",
-    "json",
-    "ts"
-  ],
+  "moduleFileExtensions": ["js", "json", "ts"],
   "rootDir": ".",
   "testEnvironment": "node",
   "testRegex": ".e2e-spec.ts$",
@@ -15,8 +11,5 @@
     "!**/node_modules/**",
     "!**/vendor/**"
   ],
-  "coverageReporters": [
-    "json",
-    "lcov"
-  ]
+  "coverageReporters": ["json", "lcov"]
 }

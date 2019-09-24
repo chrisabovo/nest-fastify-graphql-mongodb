@@ -1,5 +1,6 @@
 ﻿import { INestApplication } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
+import * as mongoose from 'mongoose';
 import * as request from 'supertest';
 import { AppModule } from '../src/app.module';
 
@@ -15,9 +16,14 @@ describe('graphql.user (e2e)', () => {
   });
 
   afterAll(async () => {
-    if (app) {
-      await app.close();
+    if (this.app) {
+      await this.app.close();
     }
+
+    mongoose.connections.forEach(async con => {
+      await con.close();
+    });
+    await mongoose.disconnect();
 
     await new Promise(resolve => setTimeout(() => resolve(), 500)); // avoid jest open handle error
   });
@@ -40,7 +46,7 @@ describe('graphql.user (e2e)', () => {
   });
   */
 
-  it('/ (GET)', () => {
+  it('/graphql query{ getUsers() }', () => {
     return request(app.getHttpServer())
       .post('/graphql')
       .send({
@@ -51,7 +57,7 @@ describe('graphql.user (e2e)', () => {
       .expect(200);
   });
 
-  it('/post /graphql', async () => {
+  it('/graphql query{ user() }', async () => {
     return request(app.getHttpServer())
       .post('/graphql')
       .send({
