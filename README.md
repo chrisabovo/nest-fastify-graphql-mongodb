@@ -4,7 +4,13 @@ Exemplo de uso com Nestjs + Fastify + Graphql + MongoDB
 
 ## Description
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+[Nest](https://nestjs.com/) - framework TypeScript starter repository.
+
+[Fastfy](https://www.fastify.io/) - Fast and low overhead web framework, for Node.js.
+
+[Graphql](https://graphql.org/) - A query language for your API.
+
+[MongoDB](https://www.mongodb.com/) - The database for modern application.
 
 ## Installation
 

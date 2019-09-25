@@ -12,7 +12,7 @@ import { UserModule } from './graphql/user/user.module';
     UserModule,
     GraphQLModule.forRoot({
       debug: true,
-      playground: true,
+      playground: JSON.parse(process.env.GRAPHQL_PLAYGROUND),
       typePaths: ['./**/*.graphql'],
       installSubscriptionHandlers: true,
       definitions: {
