@@ -24,7 +24,7 @@
     "@nestjs/graphql": "^6.5.1",
     "@nestjs/platform-express": "^6.7.2",
     "@nestjs/platform-fastify": "^6.7.2",
-    "apollo-server-express": "^2.9.4",
+    "apollo-server-express": "^2.14.2",
     "apollo-server-fastify": "^2.9.4",
     "dotenv": "^8.1.0",
     "graphql": "^14.5.8",
